@@ -32,6 +32,9 @@ for i in range(num_points):
     new_point = geopy.distance.distance(kilometers=r).destination((lat_center, lon_center), np.degrees(theta))
     points.append((new_point.latitude, new_point.longitude))
 
+# Save to DataFrame
+df = pd.DataFrame(points, columns=["Latitude", "Longitude"])
+
 # Initialize geolocator
 geolocator = Nominatim(user_agent="geo_spiral")
 
